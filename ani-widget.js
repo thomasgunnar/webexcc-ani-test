@@ -63,3 +63,6 @@
     }
   };
 })();
+
+console.log("✅ ani-widget.js loaded");
+console.log("✅ sa-ds-sdk registered:", !!window.customComponents["sa-ds-sdk"]);
