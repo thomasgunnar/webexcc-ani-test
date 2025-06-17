@@ -1,9 +1,7 @@
-// ani-widget.js (Webex Agent Desktop-kompatibel komponent via IIFE)
+// ani-widget.js (Webex Agent Desktop-kompatibel komponent via IIFE med default-export)
 
 (function () {
-  window.customComponents = window.customComponents || {};
-
-  window.customComponents["sa-ds-sdk"] = {
+  const component = {
     props: ["accessToken", "outdialEp", "darkmode"],
     data() {
       return {
@@ -62,7 +60,9 @@
       }
     }
   };
-})();
 
-console.log("✅ ani-widget.js loaded");
-console.log("✅ sa-ds-sdk registered:", !!window.customComponents["sa-ds-sdk"]);
+  window.customComponents = window.customComponents || {};
+  window.customComponents["sa-ds-sdk"] = component;
+  window.default = component;
+  console.log("✅ sa-ds-sdk component registered and exported as window.default");
+})();
